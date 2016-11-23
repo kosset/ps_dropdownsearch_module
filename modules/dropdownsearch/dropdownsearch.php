@@ -1,4 +1,28 @@
 <?php
+/**
+* 2007-2015 PrestaShop
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License (AFL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/afl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@prestashop.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+* versions in the future. If you wish to customize PrestaShop for your
+* needs please refer to http://www.prestashop.com for more information.
+*
+*  @author    PrestaShop SA <contact@prestashop.com>
+*  @copyright 2007-2015 PrestaShop SA
+*  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*  International Registered Trademark & Property of PrestaShop SA
+*/
 
 if (!defined('_PS_VERSION_')) {
     exit;
@@ -40,8 +64,7 @@ class Dropdownsearch extends Module
         return parent::install() &&
             $this->registerHook('header') &&
             $this->registerHook('backOfficeHeader') &&
-            $this->registerHook('displayLeftColumn') &&
-            $this->registerHook('displayTop');
+            $this->registerHook('displayLeftColumn');
     }
 
     public function uninstall()
@@ -242,48 +265,4 @@ class Dropdownsearch extends Module
 		  return $this->display(__FILE__, '/views/templates/front/dropdownsearch.tpl');
 
     }
-
-    public function hookDisplayTop()
-    {
-
-      $sql = new DbQuery();
-      $sql->select('al.name, al.id_attribute');
-      $sql->from('attribute_lang', 'al');
-      $sql->innerJoin('attribute', 'a', 'al.id_attribute = a.id_attribute');
-      $sql->where('a.id_attribute_group = 4');
-      $sql->where('al.id_lang='.$this->context->language->id);
-      $sql->where('a.id_attribute IN (SELECT id_attribute FROM ps_product_attribute_combination
-      WHERE 1 GROUP BY id_attribute)');
-      $sql->orderBy('al.name ASC');
-      $makes = Db::getInstance()->executeS($sql);
-
-      $sql2 = new DbQuery();
-      $sql2->select('cl.name');
-      $sql2->from('category_lang', 'cl');
-      $sql2->innerJoin('category_product', 'cp', 'cl.id_category = cp.id_category');
-      $sql2->where('cl.id_lang='.$this->context->language->id);
-      $sql2->groupBy('cl.name');
-      $sql2->orderBy('cl.name ASC');
-      $categories = Db::getInstance()->executeS($sql2);
-
-      $sql3 = new DbQuery();
-      $sql3->select('m.name');
-      $sql3->from('manufacturer', 'm');
-      $sql3->innerJoin('product', 'p', 'm.id_manufacturer = p.id_manufacturer');
-      $sql3->where('1');
-      $sql3->groupBy('m.name');
-      $sql3->orderBy('m.name ASC');
-      $manufacturers = Db::getInstance()->executeS($sql3);
-
-      $this->context->smarty->assign(
-          array(
-            'dropdownsearch_makes' => $makes,
-            'dropdownsearch_categories' => $categories,
-            'dropdownsearch_manufacturers' => $manufacturers,
-          )
-        );
-      return $this->display(__FILE__, '/views/templates/front/dropdownsearch.tpl');
-
-    }
-
 }
