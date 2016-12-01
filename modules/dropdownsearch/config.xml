@@ -4,7 +4,7 @@
 	<displayName><![CDATA[Dropdown Search and Filter]]></displayName>
 	<version><![CDATA[0.1.0]]></version>
 	<description><![CDATA[Search and filter with dropdown menu, dynamic results]]></description>
-	<author><![CDATA[Sage]]></author>
+	<author><![CDATA[Kostas Set]]></author>
 	<tab><![CDATA[search_filter]]></tab>
 	<is_configurable>0</is_configurable>
 	<need_instance>0</need_instance>
