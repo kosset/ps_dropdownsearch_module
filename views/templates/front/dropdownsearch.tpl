@@ -1,8 +1,8 @@
 <!-- Block doopdownsearch -->
 
 <div id="dropdownsearch_block" class="block">
-    <h3>Welcome!</h3>
-    <div class="block_content">
+    <h2 class="title_block">Search it!</h2>
+    <div class="block_content" style="">
         <form id="dropdownsearch_form">
             <div class="form-group">
                 <select id="dropdownsearch_make" name="dropdownsearch_make" onChange="dropdownsearch_getModels(this.value);">
@@ -49,7 +49,7 @@
                 <input class="form-control" type="search" placeholder="Enter your keyword..." id="dropdownsearch_keyword" name="dropdownsearch_keyword" onkeydown="if (event.keyCode == 13) return false;">
             </div>
 
-            <input id="dropdownsearch_submit" name="Search" value="Search" type="button" class="btn btn-default" onclick="dropdownsearch_submitSearch();">
+            <input id="dropdownsearch_submit" name="Search" value="Search" type="button" class="btn btn-default button" onclick="dropdownsearch_submitSearch();">
             <input id="dropdownsearch_reset" name="Reset" type="reset" class="btn btn-default">
         </form>
     </div>
