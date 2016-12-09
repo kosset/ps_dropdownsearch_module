@@ -1,3 +1,5 @@
+/*  ****** PRODUCT ATTRIBUTES ******
+
 function dropdownsearch_getModels(val) {
     //clear other options
     $('#dropdownsearch_model option[value!=""], #dropdownsearch_type option[value!=""]').each(function() {
@@ -57,6 +59,8 @@ function dropdownsearch_getTypes(val) {
         });
     }
 }
+
+*/
 
 
 function dropdownsearch_submitSearch() {

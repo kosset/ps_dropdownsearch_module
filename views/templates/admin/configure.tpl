@@ -1,4 +1,6 @@
-{*
+<!DOCTYPE html>
+
+<!--{*
 * 2007-2015 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -21,7 +23,7 @@
 *  @copyright 2007-2015 PrestaShop SA
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
-*}
+*}-->
 
 <div class="panel">
 	<h3><i class="icon icon-credit-card"></i> {l s='Dropdown Search and Filter' mod='dropdownsearch'}</h3>
@@ -33,16 +35,5 @@
 	<br />
 	<p>
 		{l s='This module will boost your sales!' mod='dropdownsearch'}
-	</p>
-</div>
-
-<div class="panel">
-	<h3><i class="icon icon-tags"></i> {l s='Documentation' mod='dropdownsearch'}</h3>
-	<p>
-		&raquo; {l s='You can get a PDF documentation to configure this module' mod='dropdownsearch'} :
-		<ul>
-			<li><a href="#" target="_blank">{l s='English' mod='dropdownsearch'}</a></li>
-			<li><a href="#" target="_blank">{l s='French' mod='dropdownsearch'}</a></li>
-		</ul>
 	</p>
 </div>

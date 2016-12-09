@@ -2,7 +2,7 @@
 <module>
 	<name>dropdownsearch</name>
 	<displayName><![CDATA[Dropdown Search and Filter]]></displayName>
-	<version><![CDATA[0.1.0]]></version>
+	<version><![CDATA[1.0.0]]></version>
 	<description><![CDATA[Search with dropdown menu, dynamic lists]]></description>
 	<author><![CDATA[Kostas Setzas]]></author>
 	<tab><![CDATA[search_filter]]></tab>

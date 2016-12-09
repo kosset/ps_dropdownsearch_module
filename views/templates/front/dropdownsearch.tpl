@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <!-- Block doopdownsearch -->
 
 <div id="dropdownsearch_block" class="block">
@@ -5,43 +7,19 @@
     <div class="block_content" style="">
         <form id="dropdownsearch_form">
             <div class="form-group">
-                <select id="dropdownsearch_make" name="dropdownsearch_make" onChange="dropdownsearch_getModels(this.value);">
-                <option value="" selected>MAKE</option>
-                <!-- Smarty Block here-->
-                {foreach $dropdownsearch_makes as $make}
-                <option value="{$make.id_attribute}">{$make.name}</option>
-                {/foreach}
-                <!----------------------->
-            </select>
-            </div>
-            <div class="form-group">
-                <select id="dropdownsearch_model" name="dropdownsearch_model" onChange="dropdownsearch_getTypes(this.value);" disabled>
-                <option value="" selected>MODEL</option>
-            </select>
-            </div>
-            <div class="form-group">
-                <select id="dropdownsearch_type" name="dropdownsearch_type" disabled>
-                <option value="" selected>TYPE</option>
-            </select>
-            </div>
-            <div class="form-group">
                 <select id="dropdownsearch_category" name="dropdownsearch_category">
                  <option value="" selected>CATEGORY</option>
-                <!-- Smarty Block here-->
                 {foreach $dropdownsearch_categories as $category}
                 <option value="{$category.name}">{$category.name}</option>
                 {/foreach}
-                <!----------------------->
              </select>
             </div>
             <div class="form-group">
                 <select id="dropdownsearch_manufacturer" name="dropdownsearch_manufacturer">
                   <option value="" selected>MANUFACTURER</option>
-                  <!-- Smarty Block here-->
                   {foreach $dropdownsearch_manufacturers as $manufacturer}
                   <option value="{$manufacturer.name}">{$manufacturer.name}</option>
                   {/foreach}
-                  <!----------------------->
               </select>
             </div>
             <div class="form-group">

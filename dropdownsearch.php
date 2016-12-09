@@ -36,8 +36,8 @@ class Dropdownsearch extends Module
     {
         $this->name = 'dropdownsearch';
         $this->tab = 'search_filter';
-        $this->version = '0.1.0';
-        $this->author = 'Kostas Sage';
+        $this->version = '1.0.0';
+        $this->author = 'Kostas Setzas';
         $this->need_instance = 0;
 
         /**
@@ -226,17 +226,6 @@ class Dropdownsearch extends Module
     public function hookDisplayLeftColumn()
     {
 
-      $sql = new DbQuery();
-      $sql->select('al.name, al.id_attribute');
-      $sql->from('attribute_lang', 'al');
-      $sql->innerJoin('attribute', 'a', 'al.id_attribute = a.id_attribute');
-      $sql->where('a.id_attribute_group = 4');
-      $sql->where('al.id_lang='.$this->context->language->id);
-      $sql->where('a.id_attribute IN (SELECT id_attribute FROM ps_product_attribute_combination
-      WHERE 1 GROUP BY id_attribute)');
-      $sql->orderBy('al.name ASC');
-      $makes = Db::getInstance()->executeS($sql);
-
       $sql2 = new DbQuery();
       $sql2->select('cl.name');
       $sql2->from('category_lang', 'cl');
@@ -257,7 +246,7 @@ class Dropdownsearch extends Module
 
   		$this->context->smarty->assign(
   			  array(
-            'dropdownsearch_makes' => $makes,
+            //'dropdownsearch_makes' => $makes,
             'dropdownsearch_categories' => $categories,
             'dropdownsearch_manufacturers' => $manufacturers,
   			  )
